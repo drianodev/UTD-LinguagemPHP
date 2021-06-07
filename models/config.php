@@ -1,7 +1,7 @@
 <?php  
 
 	// Nome do Projeto
-	$project_name = "/projeto/project/";
+	$project_name = "/projeto";
 	$project_index = "http://".$_SERVER['SERVER_NAME'].$project_name;
 	$project_path = $_SERVER['DOCUMENT_ROOT'].$project_name;
 

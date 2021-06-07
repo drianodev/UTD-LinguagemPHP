@@ -18,25 +18,25 @@
 		
 		case 'add':
 			unset($_POST['action']);
-			$_POST['user_password'] = sha1($_POST['user_password']);
-			$manager->insert_common("users", $_POST, null);
+			$_POST['codproduto'] = ($_POST['codproduto']);
+			$manager->insert_common("Produto", $_POST, null);
 			header("location: ".$project_index."/admin.php?op=manager-users");
 		break;
 
 		case 'edit':
-			unset($_POST['action']);
-			if($_POST['user_password'] == ""){
-				unset($_POST['user_password']);
+			unset($_POST['codproduto']);
+			if($_POST['codproduto'] == ""){
+				unset($_POST['codproduto']);
 			}else{
-				$_POST['user_password'] = sha1($_POST['user_password']);
+				$_POST['codproduto'] = ($_POST['codproduto']);
 			}		
 
-			$manager->update_common("admin", $_POST, ['user_id'=>$_POST['user_id']],null);
+			$manager->update_common("Produto", $_POST, ['codproduto'=>$_POST['codproduto']],null);
 			header("location: ".$project_index."/admin.php?op=manager-users");
 		break;
 
 		case 'delete':
-			$manager->delete_common("admin", ['user_id'=>$_GET['id']],null);
+			$manager->delete_common("Produto", ['codproduto'=>$_GET['id']],null);
 			header("location: ".$project_index."/admin.php?op=manager-users");
 		break;
 	}

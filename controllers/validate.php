@@ -14,7 +14,7 @@
 
 			case 'manager-users':
 				$manager = new Manager;
-				$users = $manager->select_common("users", null,null,null);
+				$users = $manager->select_common("admin", null,null,null);
 				include_once $GLOBALS['project_path'].'/views/users/manager-users.html';
 			break;
 
@@ -24,7 +24,7 @@
 
 			case 'edit-user':
 				$manager = new Manager;
-				$user = $manager->select_common("users", null,['id_user'=>$_GET['id']],null);		
+				$user = $manager->select_common("admin", null,['user-id'=>$_GET['id']],null);		
 				include_once $GLOBALS['project_path'].'/views/users/edit-user.html';
 			break;
 

@@ -1,41 +1,45 @@
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800"> Listagem de Usuários </h1>
+<h1 class="h3 mb-4 text-gray-800"> Listagem de Produtos </h1>
 
 <table class="table table-striped table-hover">
 	<thead>
-		<th>Nome</th>
-		<th>Email</th>
-		<th>CPF</th>
-		<th>Criado em</th>
-		<th>Ações</th>
+		<th></th>
+		<th>Código Produto</th>
+		<th>Código Categoria</th>
+		<th>Código Fornecedor</th>
+		<th>Descrição</th>
+		<th>Peso</th>
+		<th>Quantidade minima</th>
 	</thead>
 	<tbody>
-		<?php foreach($users as $u): ?>
+		<?php foreach($produto as $p): ?>
 			<tr>
-				<td><?=$u['user_name'];?></td>
-				<td><?=$u['user_email'];?></td>
-				<td><?=$u['user_cpf'];?></td>
-				<td><?=$u['user_createdin'];?></td>
+				<td><?=$p['codproduto'];?></td>
+				<td><?=$p['Categoria_codcategoria'];?></td>
+				<td><?=$p['Fornecedor_codfornecedor'];?></td>
+				<td><?=$p['descricao'];?></td>
+				<td><?=$p['peso'];?></td>
+				<td><?=$p['qtdemin'];?></td>
 				<td>
-					<a href="?op=edit-user&id=<?=$u['id_user'];?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-					<button class="btn btn-danger" data-toggle="modal" data-target="#deleteUser-<?=$u['id_user'];?>"><i class="fa fa-trash"></i></button>
+					<a href="?op=edit-produto&id=<?=$p['codproduto'];?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+					<button class="btn btn-danger" data-toggle="modal" data-target="#deleteItem-<?=$p['codproduto'];?>"><i class="fa fa-trash"></i></button>
 
 					<!-- Modal -->
-					<div class="modal fade" id="deleteUser-<?=$u['id_user'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal fade" id="deleteItem-<?=$p['codproduto'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					  <div class="modal-dialog">
 					    <div class="modal-content">
 					      <div class="modal-header">
-					        <h5 class="modal-title" id="exampleModalLabel">Excluir Usuário?</h5>
+					        <h5 class="modal-title" id="exampleModalLabel">Excluir Produto?</h5>
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					          <span aria-hidden="true">&times;</span>
 					        </button>
 					      </div>
 					      <div class="modal-body">
-					        Tem certeza que deseja excluir <strong><?=$u['user_name'];?>??</strong> Essa operação não pode ser desfeita!
+					        Tem certeza que deseja excluir <strong><?=$p['descricao'];?>??</strong> Essa operação não pode ser desfeita!
 					      </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-					        <a href="<?=$GLOBALS['project_index'];?>/controllers/users.php?action=delete&id=<?=$u['id_user'];?>" type="button" class="btn btn-success">Sim, pode excluir!</a>
+					        <a href="<?=$GLOBALS['project_index'];?>/controllers/users.php?action=delete&id=<?=$p['codproduto'];?>" type="button" class="btn btn-success">Sim, pode excluir!</a>
 					      </div>
 					    </div>
 					  </div>
